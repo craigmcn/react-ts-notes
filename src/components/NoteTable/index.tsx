@@ -9,11 +9,6 @@ interface NoteTableProps {
 }
 
 const NoteTable: React.FC<NoteTableProps> = ({ notes, onDelete, onEdit }) => {
-  const note: Note = {
-    id: 1,
-    title: "Some Title",
-    content: "Some Content",
-  }
   return (
     <div className="card w-30 pt-30 pb-8 mt-2">
       <table>
@@ -23,11 +18,14 @@ const NoteTable: React.FC<NoteTableProps> = ({ notes, onDelete, onEdit }) => {
           </tr>
         </thead>
         <tbody data-testid="notes-list">
-          <NoteItem
-            note={note}
-            onDelete={() => { }}
-            onEdit={() => { }}
-          />
+          {notes.map((note) => (
+            <NoteItem
+              key={note.id}
+              note={note}
+              onDelete={onDelete}
+              onEdit={onEdit}
+            />
+          ))}
         </tbody>
       </table>
     </div>
