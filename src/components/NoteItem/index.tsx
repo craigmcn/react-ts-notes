@@ -8,12 +8,22 @@ export interface NoteItemProps {
 }
 
 const NoteItem: React.FC<NoteItemProps> = ({ note, onDelete, onEdit }) => {
+  const handleEdit = () => {
+    onEdit(note);
+  }
+
+  const handleDelete = () => {
+    if (note?.id) {
+      onDelete(note.id);
+    }
+  }
+
   return (
-    <tr key={0}>
-      <td>Note Title</td>
-      <td>Note Content</td>
-      <td><button className="outlined" onClick={() => {}}>Edit</button></td>
-      <td><button className="danger" onClick={() => {}}>Delete</button></td>
+    <tr>
+      <td>{note.title}</td>
+      <td>{note.content}</td>
+      <td><button className="outlined" onClick={handleEdit}>Edit</button></td>
+      <td><button className="danger" onClick={handleDelete}>Delete</button></td>
     </tr>
   );
 };
