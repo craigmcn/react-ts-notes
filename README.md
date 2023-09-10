@@ -48,7 +48,7 @@ Note:
 ## Environment
 
 - React Version: 18.2.0
-- Node Version: 14(LTS)
+- Node Version: 18.16.1
 - Default Port: 8000
 
 
